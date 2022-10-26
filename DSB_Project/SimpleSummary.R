@@ -15,7 +15,19 @@ OccupNest<-read.csv("/Users/liuyue/DS4B_Project_EaBluebirds_ConstrucNoise/DSB_Pr
 ReprOut<-read.csv("/Users/liuyue/DS4B_Project_EaBluebirds_ConstrucNoise/DSB_Project/Data/ReproductionOutcome.csv") # Reproduction outcome data set
 
 
-# Code for the figures in proposal: Simple summary stats of the data
+# Code for the figures in proposal: Simple summary stats of the data (Figure 1: sample size of each treatment type)
+
+# ------ counting number of nests in each treatment type, figure 1 in proposal.
+Treat_counts <- ReprOut %>% 
+  group_by(Treatment_Type) %>% 
+  summarise(totalRows = n()) %>% 
+  arrange(Treatment_Type) # create a new table counts the number of nests in each treatment type
+Treat_counts <- Treat_counts %>% rename(Nest_Counts = totalRows) # rename the second column
+# create a plot shwoing the number of nests in each treatment type
+ggplot(data = Treat_counts) + 
+  aes(x =  Treatment_Type, y = Nest_Counts) +
+  geom_col()
+
 
 # ------ Summarize the recorded nests' information: species and counts  
 View(OccupNest)
@@ -30,18 +42,6 @@ str(Nest_Speci)
 # create a plot showing the number of nests per species
 ggplot(data = Nest_Speci) + 
   aes(x = Species, y = Nest_Counts) +
-  geom_col()
-
-
-# ------ counting number of nests in each treatment type
-Treat_counts <- ReprOut %>% 
-  group_by(Treatment_Type) %>% 
-  summarise(totalRows = n()) %>% 
-  arrange(Treatment_Type) # create a new table counts the number of nests in each treatment type
-Treat_counts <- Treat_counts %>% rename(Nest_Counts = totalRows) # rename the second column
-# create a plot shwoing the number of nests in each treatment type
-ggplot(data = Treat_counts) + 
-  aes(x =  Treatment_Type, y = Nest_Counts) +
   geom_col()
 
 
