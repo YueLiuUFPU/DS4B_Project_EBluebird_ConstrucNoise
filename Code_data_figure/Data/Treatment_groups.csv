@@ -1,5 +1,0 @@
-﻿Group_Code,Ambient_Noise_Level,Ambient_Noise_Class,Playback_Status,Treatment_Type,Treatment_Description
-1,Below 70 dB,Quiet,No,Q,"Box sites in this group have ambinet noise level below 70dBl, with no experimently added construction noise"
-2,Below 70 dB,Quiet,Yes,QP,"Box sites in this group have ambinet noise level below 70dBl, with experimently added construction noise"
-3,Above 70 dB,Noisy,No,N,"Box sites in this group have ambinet noise level above 70dBl,  with no experimently added construction noise"
-4,Above 70 dB,Noisy,Yes,NP,"Box sites in this group have ambinet noise level above 70dBl, with experimently added construction noise"
